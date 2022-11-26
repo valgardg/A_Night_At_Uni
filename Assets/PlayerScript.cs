@@ -24,11 +24,11 @@ public class PlayerScript : MonoBehaviour
         }
         if(Input.GetKey("a")){
             print("player pressed a");
-            gameObject.transform.Translate(playerSpeed * Time.deltaTime,0f,0f);
+            gameObject.transform.Translate(-playerSpeed * Time.deltaTime,0f,0f);
         }
         if(Input.GetKey("d")){
             print("player pressed d");
-            gameObject.transform.Translate(-playerSpeed * Time.deltaTime,0f,0f);
+            gameObject.transform.Translate(playerSpeed * Time.deltaTime,0f,0f);
         }
     }
 }
