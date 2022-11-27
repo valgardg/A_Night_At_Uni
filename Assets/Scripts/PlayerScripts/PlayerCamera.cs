@@ -8,6 +8,7 @@ public class PlayerCamera : MonoBehaviour
     public float sensY;
 
     public Transform orientation;
+    public Transform flashlight;
 
     float xRotation;
     float yRotation;
@@ -33,6 +34,7 @@ public class PlayerCamera : MonoBehaviour
 
         // rotate cam and orientation
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0f);
+        flashlight.rotation = Quaternion.Euler(xRotation, yRotation, 0f);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
 
     }
