@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     // calls to other game objects
     public Transform orientation;
 
+    public AudioSource walkingAudioSource;
+
     // Player Attributes
     public float playerSpeed = 6f;
 
@@ -52,6 +54,14 @@ public class PlayerMovement : MonoBehaviour
         print($"moveDirection: {moveDirection}");
         // apply the movement
         rb.AddForce(moveDirection.normalized * playerSpeed * 10f, ForceMode.Force);
+
+        // play walking sounds if the player is walking
+        if((verticalInput != 0 || horizontalInput != 0) && !walkingAudioSource.isPlaying){
+            walkingAudioSource.Play();
+        }
+        if(verticalInput == 0 && horizontalInput == 0){
+            walkingAudioSource.Stop();
+        }
     }
     
     private void SpeedControl(){
