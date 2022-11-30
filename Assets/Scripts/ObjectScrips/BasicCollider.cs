@@ -9,8 +9,9 @@ public class BasicCollider : MonoBehaviour
 {
     public TMP_Text text;
     public KeyCode presskey;
-    public int rayDistance; 
-
+    public int rayDistance;
+    public GameObject mydoor;
+    public Animation anitmate;
 
     void FixedUpdate()
     {
@@ -20,11 +21,12 @@ public class BasicCollider : MonoBehaviour
         if (Physics.Raycast(ray, out hit, rayDistance))
         {
 
-            if (hit.collider.tag == "Key")
+            if (hit.collider.tag != "Untagged" && hit.collider.tag != "Door")
             {
-                text.text = "press E to pickup key";
+                text.text = "press E to pickup " + hit.collider.tag;
+               
                 if (Input.GetKeyDown(presskey))
-                {
+                {                  
                     Destroy(hit.collider.gameObject);
                     text.text = "";
                 }
