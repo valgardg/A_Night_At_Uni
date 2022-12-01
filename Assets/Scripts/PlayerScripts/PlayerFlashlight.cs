@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerFlashlight : MonoBehaviour
 {
     public GameObject flashlight;
+    public AudioSource audioSource;
 
     bool flashlightActive = true;
 
@@ -12,6 +13,7 @@ public class PlayerFlashlight : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown("f")){
+            audioSource.Play();
             flashlight.active = !flashlightActive;
             flashlightActive = !flashlightActive;
         }

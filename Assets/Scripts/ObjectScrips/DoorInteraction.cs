@@ -12,6 +12,7 @@ public class DoorInteraction : MonoBehaviour
     public int rayDistance;
     public GameObject mydoor;
     public Animation anitmate;
+    public AudioSource audioSource;
     bool doorClosed = true;
 
     void FixedUpdate()
@@ -26,9 +27,10 @@ public class DoorInteraction : MonoBehaviour
             {
                 text.text = "press E to pickup " + hit.collider.tag;
 
-                if (Input.GetKeyDown(presskey))
+                if (Input.GetKeyDown(presskey) && doorClosed)
                 {
                     anitmate.Play();
+                    audioSource.Play();
                     doorClosed = false;
                     text.text = "";
                 }
