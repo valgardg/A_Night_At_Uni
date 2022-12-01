@@ -10,6 +10,12 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        agent.SetDestination(new Vector3(player.position.x, 2, player.position.z));
+        if(GameManager.instance.chasePlayer){
+            agent.SetDestination(new Vector3(player.position.x, 2, player.position.z));
+        }
+    }
+
+    private void OnTriggerEnter(Collider other){
+        print("enemy hit a collider!");
     }
 }
