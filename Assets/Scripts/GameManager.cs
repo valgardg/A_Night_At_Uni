@@ -19,9 +19,6 @@ public class GameManager : MonoBehaviour
 
     public bool chasePlayer;
     
-    public TMP_Text text;
-    private string currentOrigin;
-    
     void Awake(){
         instance = this;
         chasePlayer = false;
@@ -30,19 +27,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        text.text = "";
-    }
-
-    public void UpdateTextPrompt(string origin, string incomingText){
-        if(currentOrigin == origin && incomingText == null){
-            text.text = null;
-        }
-        if(text is not null){
-            print("should be updating now!!!");
-            currentOrigin = origin;
-            text.text = incomingText;
-        }
-
+        
     }
 
     // Update is called once per frame
