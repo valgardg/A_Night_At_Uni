@@ -1,16 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using System.Runtime.CompilerServices;
+using UnityEditor.UIElements;
 
 public class GameManager : MonoBehaviour
-{
+{    
     public static GameManager instance;
-    public bool chasePlayer;
+
+    // in game items
+    public GameObject flashlightObject;
+    public GameObject actualFlashlightLight;
 
     // player inventory variables
     public bool hasFlashlight;
     public bool hasKey;
 
+    public bool chasePlayer;
+    
     void Awake(){
         instance = this;
         chasePlayer = false;
@@ -24,7 +32,27 @@ public class GameManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        print("running running running!");   
+    {  
+        
+    }
+
+    public void ItemPickedUp(string pickedUpItem){
+        
+        switch(pickedUpItem){
+            case "Key":
+                hasKey = true;
+                print("picked up key!");
+                break;
+            case "Flashlight":
+                hasFlashlight = true;
+                flashlightObject.active = true;
+                actualFlashlightLight.active = false;
+                print("picked up flashlight!");
+                break;
+            default:
+                print("Picked up an unidentified object!");
+                break;
+        }
+
     }
 }
