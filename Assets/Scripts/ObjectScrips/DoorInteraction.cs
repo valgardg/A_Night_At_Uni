@@ -25,10 +25,19 @@ public class DoorInteraction : MonoBehaviour
 
             if (hit.collider.tag == "Door")
             {
-                text.text = "press E to pickup " + hit.collider.tag;
+                if(doorClosed && GameManager.instance.hasKey){
+                    //GameManager.instance.UpdateTextPrompt(hit.collider.tag, "press E to open " + hit.collider.tag);
+                    text.text = "press E to open " + hit.collider.tag;
+                }
 
-                if (Input.GetKeyDown(presskey) && doorClosed)
+                if(doorClosed && !GameManager.instance.hasKey){
+                    //GameManager.instance.UpdateTextPrompt(hit.collider.tag, "door requires keys");
+                    text.text = "door requires keys ";
+                }
+
+                if (Input.GetKeyDown(presskey) && doorClosed && GameManager.instance.hasKey)
                 {
+                    text.text = "press E to open " + hit.collider.tag;
                     anitmate.Play();
                     audioSource.Play();
                     doorClosed = false;

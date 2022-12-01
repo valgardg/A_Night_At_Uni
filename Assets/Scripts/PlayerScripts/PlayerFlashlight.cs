@@ -7,15 +7,12 @@ public class PlayerFlashlight : MonoBehaviour
     public GameObject flashlight;
     public AudioSource audioSource;
 
-    bool flashlightActive = true;
-
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("f")){
+        if(Input.GetKeyDown("f") && GameManager.instance.hasFlashlight){
             audioSource.Play();
-            flashlight.active = !flashlightActive;
-            flashlightActive = !flashlightActive;
+            flashlight.active = !flashlight.active;
         }
     }
 }

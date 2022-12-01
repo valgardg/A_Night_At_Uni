@@ -22,12 +22,14 @@ public class BasicCollider : MonoBehaviour
 
             if (hit.collider.tag != "Untagged" && hit.collider.tag != "Door")
             {
+                //GameManager.instance.UpdateTextPrompt(hit.collider.tag, "press E to pickup " + hit.collider.tag);
                 text.text = "press E to pickup " + hit.collider.tag;
                
                 if (Input.GetKeyDown(presskey) && hit.collider.tag == gameObject.tag)
                 {
                     audioSource.Play();
                     text.text = "";
+                    GameManager.instance.ItemPickedUp(hit.collider.tag);
                     //hit.collider.gameObject.SetActive(false);
                     Destroy(hit.collider.gameObject);
                 }
