@@ -10,8 +10,7 @@ public class BasicCollider : MonoBehaviour
     public TMP_Text text;
     public KeyCode presskey;
     public int rayDistance;
-    public GameObject mydoor;
-    public Animation anitmate;
+    public AudioSource audioSource;
 
     void FixedUpdate()
     {
@@ -25,12 +24,18 @@ public class BasicCollider : MonoBehaviour
             {
                 text.text = "press E to pickup " + hit.collider.tag;
                
-                if (Input.GetKeyDown(presskey))
-                {                  
-                    Destroy(hit.collider.gameObject);
+                if (Input.GetKeyDown(presskey) && hit.collider.tag == gameObject.tag)
+                {
+                    audioSource.Play();
                     text.text = "";
+                    //hit.collider.gameObject.SetActive(false);
+                    Destroy(hit.collider.gameObject);
                 }
             }
         }
+    }
+    private void OnDestroy()
+    {
+       
     }
 }
