@@ -18,11 +18,24 @@ public class GameManager : MonoBehaviour
     public bool hasFlashlight;
     public bool hasKey;
 
+    // enemy variables
     public bool chasePlayer;
+
+    // enviromental objects
+    public Material materialDay;
+    public Material materialNight;
+
+    // environmental settings
+    public bool setNightTime;
     
     void Awake(){
         instance = this;
         chasePlayer = false;
+        if(setNightTime){
+            RenderSettings.skybox = materialNight;
+        }else{
+            RenderSettings.skybox = materialDay;
+        }
     }
 
     // Start is called before the first frame update

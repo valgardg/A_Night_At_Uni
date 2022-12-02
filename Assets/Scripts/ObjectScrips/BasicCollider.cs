@@ -25,7 +25,7 @@ public class BasicCollider : MonoBehaviour
                 //GameManager.instance.UpdateTextPrompt(hit.collider.tag, "press E to pickup " + hit.collider.tag);
                 text.text = "press E to pickup " + hit.collider.tag;
                
-                if (Input.GetKeyDown(presskey) && hit.collider.tag == gameObject.tag)
+                if (Input.GetKey(presskey) && hit.collider.tag == gameObject.tag)
                 {
                     audioSource.Play();
                     text.text = "";
