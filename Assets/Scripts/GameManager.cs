@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System.Runtime.CompilerServices;
 using UnityEditor.UIElements;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {    
@@ -54,5 +55,9 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
+    }
+
+    public void PlayerDeath(){
+        SceneManager.LoadScene("GameOverScene");
     }
 }

@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
     public Transform player;
     public UnityEngine.AI.NavMeshAgent agent;
     public AudioSource audio;
+    public AudioSource footsteps;
 
     bool audioPlayed = false;
 
@@ -17,6 +18,7 @@ public class EnemyController : MonoBehaviour
             agent.SetDestination(new Vector3(player.position.x, 2, player.position.z));
             if(audioPlayed == false){
                 audio.Play();
+                footsteps.Play();
                 audioPlayed = true;
             }
         }
@@ -24,5 +26,6 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other){
         print("enemy hit a collider!");
+        GameManager.instance.PlayerDeath();
     }
 }
