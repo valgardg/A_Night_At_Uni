@@ -6,12 +6,19 @@ public class EnemyController : MonoBehaviour
 {
     public Transform player;
     public UnityEngine.AI.NavMeshAgent agent;
+    public AudioSource audio;
+
+    bool audioPlayed = false;
 
     // Update is called once per frame
     void Update()
     {
         if(GameManager.instance.chasePlayer){
             agent.SetDestination(new Vector3(player.position.x, 2, player.position.z));
+            if(audioPlayed == false){
+                audio.Play();
+                audioPlayed = true;
+            }
         }
     }
 
