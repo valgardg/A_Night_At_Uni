@@ -8,10 +8,11 @@ using UnityEditor.UIElements;
 public class PlayerFlashlight : MonoBehaviour
 {
     public GameObject flashlight;
-    public TMP_Text text;
     public AudioSource audioSource;
 
     private bool hasTurnedOn = false;
+
+    public TMP_Text text;
 
     // Update is called once per frame
     void Update()
