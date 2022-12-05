@@ -5,6 +5,7 @@ using TMPro;
 using System.Runtime.CompilerServices;
 using UnityEditor.UIElements;
 using UnityEngine.SceneManagement;
+using System.ComponentModel;
 
 public class GameManager : MonoBehaviour
 {    
@@ -27,7 +28,10 @@ public class GameManager : MonoBehaviour
 
     // environmental settings
     public bool setNightTime;
+    public float sensex;
+    public float sensey;
     
+
     void Awake(){
         instance = this;
         chasePlayer = false;
@@ -36,12 +40,15 @@ public class GameManager : MonoBehaviour
         }else{
             RenderSettings.skybox = materialDay;
         }
+        DontDestroyOnLoad(gameObject);
+        sensex = SetSense.Instance.xval;
+        sensey = SetSense.Instance.yval;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+         
     }
 
     // Update is called once per frame
@@ -49,6 +56,8 @@ public class GameManager : MonoBehaviour
     {  
         
     }
+
+
 
     public void ItemPickedUp(string pickedUpItem){
         

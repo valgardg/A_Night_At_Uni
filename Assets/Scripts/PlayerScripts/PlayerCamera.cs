@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
-    public float sensX;
-    public float sensY;
+    float sensX;
+    float sensY;
 
     public Transform orientation;
     public Transform flashlight;
@@ -18,11 +18,14 @@ public class PlayerCamera : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        sensX = GameManager.instance.sensex;
+        sensY = GameManager.instance.sensey;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(sensX);
         // get mouse x input
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
         // get mouse x input
