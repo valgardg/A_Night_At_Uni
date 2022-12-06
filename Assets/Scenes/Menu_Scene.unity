@@ -226,8 +226,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xSlider: {fileID: 1506358883}
   ySlider: {fileID: 1939999158}
-  xval: 0
-  yval: 0
 --- !u!114 &1939999158 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 393980877519705182, guid: 0a68be1bd13d8694e8d8fe85574ac075, type: 3}

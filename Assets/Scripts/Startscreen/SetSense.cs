@@ -11,38 +11,21 @@ public class SetSense : MonoBehaviour
     public Slider xSlider;
     public Slider ySlider;
 
-    public float xval;
-    public float yval;
-    public static SetSense Instance;
-
-    private void Awake()
-    {
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
-
     void Start()
     {
         xSlider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
         ySlider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
     void ValueChangeCheck() 
     {
-        
-        xval = xSlider.value;
-        Debug.Log(xSlider.value);
+        PlayerPrefs.SetFloat("XSensitivity", xSlider.value);
+        PlayerPrefs.SetFloat("YSensitivity", ySlider.value);
+        //SettingControll.Instance.xsense = xSlider.value;
+        //SettingControll.Instance.ysense = ySlider.value;
 
-        yval = ySlider.value;
-        Debug.Log(ySlider.value);
-        //yval = xSlider.value;
+        Debug.Log(PlayerPrefs.GetFloat("YSensitivity"));
 
+        Debug.Log(PlayerPrefs.GetFloat("XSensitivity"));
     }
 }
