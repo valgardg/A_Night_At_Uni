@@ -12,14 +12,22 @@ public class PlayerCamera : MonoBehaviour
 
     float xRotation;
     float yRotation;
+    private int inverted;
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        inverted = PlayerPrefs.GetInt("Inverted");
+    }
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         sensX = PlayerPrefs.GetFloat("XSensitivity");
         sensY = PlayerPrefs.GetFloat("YSensitivity");
+        AudioListener.volume = PlayerPrefs.GetFloat("MusicVolume");
+        Debug.Log(AudioListener.volume);
     }
 
     // Update is called once per frame
@@ -27,9 +35,9 @@ public class PlayerCamera : MonoBehaviour
     {
        
         // get mouse x input
-        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
+        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX * inverted;
         // get mouse x input
-        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
+        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY * inverted;
 
         yRotation += mouseX;
         xRotation -= mouseY;

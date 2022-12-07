@@ -28,8 +28,7 @@ public class GameManager : MonoBehaviour
 
     // environmental settings
     public bool setNightTime;
-    public float sensex = 200;
-    public float sensey = 200;
+  
     
 
     void Awake(){
@@ -41,15 +40,14 @@ public class GameManager : MonoBehaviour
             RenderSettings.skybox = materialDay;
         }
         DontDestroyOnLoad(gameObject);
-        //sensex = SettingControll.Instance.xsense;
-        //sensey = SettingControll.Instance.ysense;
         Debug.Log(PlayerPrefs.GetFloat("XSensitivity"));
     }
 
     // Start is called before the first frame update
     void Start()
     {
-         
+        AudioListener.volume = PlayerPrefs.GetFloat("Volume");
+        Debug.Log(AudioListener.volume);
     }
 
     // Update is called once per frame

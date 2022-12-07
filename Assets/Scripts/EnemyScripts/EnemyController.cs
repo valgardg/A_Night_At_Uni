@@ -14,13 +14,22 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameManager.instance.chasePlayer){
-            agent.SetDestination(new Vector3(player.position.x, 2, player.position.z));
-            if(audioPlayed == false){
-                audio.Play();
-                footsteps.Play();
-                audioPlayed = true;
+        if (PlayerPrefs.GetInt("NormalDifficulty") == 1)
+        {
+            if (GameManager.instance.chasePlayer)
+            {
+                agent.SetDestination(new Vector3(player.position.x, 2, player.position.z));
+                if (audioPlayed == false)
+                {
+                    audio.Play();
+                    footsteps.Play();
+                    audioPlayed = true;
+                }
             }
+        }
+        else
+        {
+            // we can make some difficulty changes here if we want.
         }
     }
 

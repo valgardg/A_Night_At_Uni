@@ -30,6 +30,7 @@ public class collectableItemScript : MonoBehaviour
             if (hit.collider.tag != "Untagged" && hit.collider.tag != "Door")
             {
                 //GameManager.instance.UpdateTextPrompt(hit.collider.tag, "press E to pickup " + hit.collider.tag);
+                
                 itemText.text = "press E to pickup " + hit.collider.tag;
                
                 if (Input.GetKey(presskey) && hit.collider.tag == gameObject.tag)
@@ -42,6 +43,8 @@ public class collectableItemScript : MonoBehaviour
                 }
             }
         }
+        if (PlayerPrefs.GetInt("ToolTips") == 0)
+            itemText.text = "";
     }
     private void OnDestroy()
     {

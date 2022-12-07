@@ -155,10 +155,10 @@ namespace SlimUI.ModernMenu{
 			}
 
 			// check mouse inverse
-			if(PlayerPrefs.GetInt("Inverted")==0){
+			if(PlayerPrefs.GetInt("Inverted")==1){
 				invertmousetext.GetComponent<TMP_Text>().text = "off";
 			}
-			else if(PlayerPrefs.GetInt("Inverted")==1){
+			else if(PlayerPrefs.GetInt("Inverted")==-1){
 				invertmousetext.GetComponent<TMP_Text>().text = "on";
 			}
 
@@ -362,12 +362,13 @@ namespace SlimUI.ModernMenu{
 		}
 
 		public void InvertMouse (){
-			if(PlayerPrefs.GetInt("Inverted")==0){
-				PlayerPrefs.SetInt("Inverted",1);
+			Debug.Log(PlayerPrefs.GetInt("Inverted"));
+			if(PlayerPrefs.GetInt("Inverted")==1){
+				PlayerPrefs.SetInt("Inverted",-1);
 				invertmousetext.GetComponent<TMP_Text>().text = "on";
 			}
-			else if(PlayerPrefs.GetInt("Inverted")==1){
-				PlayerPrefs.SetInt("Inverted",0);
+			else if(PlayerPrefs.GetInt("Inverted")==-1){
+				PlayerPrefs.SetInt("Inverted",1);
 				invertmousetext.GetComponent<TMP_Text>().text = "off";
 			}
 		}
