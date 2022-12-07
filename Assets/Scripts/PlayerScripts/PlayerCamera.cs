@@ -18,8 +18,8 @@ public class PlayerCamera : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        sensX = GameManager.instance.sensex;
-        sensY = GameManager.instance.sensey;
+        sensX = PlayerPrefs.GetFloat("XSensitivity");
+        sensY = PlayerPrefs.GetFloat("YSensitivity");
     }
 
     // Update is called once per frame

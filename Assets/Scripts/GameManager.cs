@@ -34,8 +34,8 @@ public class GameManager : MonoBehaviour
 
     // environmental settings
     public bool setNightTime;
-    public float sensex;
-    public float sensey;
+    public float sensex = 200;
+    public float sensey = 200;
     
 
     void Awake(){
@@ -63,6 +63,11 @@ public class GameManager : MonoBehaviour
 
         // initialise enemy variables
         chasePlayer = false;
+
+        
+        //sensex = SettingControll.Instance.xsense;
+        //sensey = SettingControll.Instance.ysense;
+        Debug.Log(PlayerPrefs.GetFloat("XSensitivity"));
     }
 
     // Start is called before the first frame update
