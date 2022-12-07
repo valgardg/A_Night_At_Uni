@@ -15,9 +15,15 @@ public class GameManager : MonoBehaviour
     public GameObject flashlightObject;
     public GameObject actualFlashlightLight;
 
+    public GameObject playerBody;
+    public GameObject playerobject;
+
     // battery textmesh
     public TextMeshProUGUI batteryCountTextMesh;
     public TextMeshProUGUI batteryLevelTextMesh;
+
+    // player hidden textmesh
+    public TextMeshProUGUI hideTextMesh;
 
     // player inventory variables
     public bool hasFlashlight;
@@ -25,6 +31,10 @@ public class GameManager : MonoBehaviour
     public int batteryCount;
     public float batteryLevel;
     public float batteryDrainSpeed;
+
+    //player states
+    public bool playerHiddenState;
+    private Vector3 previousPlayerPosition;
 
     // enemy variables
     public bool chasePlayer;
@@ -54,6 +64,9 @@ public class GameManager : MonoBehaviour
         //sensey = SetSense.Instance.yval;
 
         // initialise player variables
+
+        playerHiddenState = false;
+
         hasFlashlight = false;
         hasKey = false;
         batteryCount = 0;
@@ -79,7 +92,15 @@ public class GameManager : MonoBehaviour
     }
 
     void FixedUpdate(){
-        print("running in fixedupdate");
+        // hide stuff
+        if(playerHiddenState){
+            hideTextMesh.text = "press e to stop hiding";
+            if(Input.GetKey("w")){
+                unhidePlayer();
+            }
+        }
+
+        // battery stuff
         if(batteryLevel > 0 && actualFlashlightLight.active){
             batteryLevel -= batteryDrainSpeed;
         }
@@ -122,5 +143,20 @@ public class GameManager : MonoBehaviour
 
     public void PlayerDeath(){
         SceneManager.LoadScene("GameOverScene");
+    }
+
+    public void hidePlayer(Vector3 hidePosition){
+        print("player hides");
+        playerHiddenState = true;
+        playerBody.active = false;
+        previousPlayerPosition = playerobject.transform.position;
+        playerobject.transform.position = hidePosition;
+    }
+
+    public void unhidePlayer(){
+        print("player stops hiding");
+        playerHiddenState = false;
+        playerobject.transform.position = previousPlayerPosition;
+        playerBody.active = true;
     }
 }

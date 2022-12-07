@@ -9,6 +9,7 @@ TagManager:
   - Door
   - TestObject
   - Battery
+  - HideObject
   layers:
   - Default
   - TransparentFX

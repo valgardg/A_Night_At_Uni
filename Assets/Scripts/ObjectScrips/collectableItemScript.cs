@@ -28,7 +28,7 @@ public class collectableItemScript : MonoBehaviour
         if (Physics.Raycast(ray, out hit, rayDistance))
         {
 
-            if (hit.collider.tag != "Untagged" && hit.collider.tag != "Door")
+            if (hit.collider.tag != "Untagged" && hit.collider.tag != "Door" && hit.collider.tag != "HideObject")
             {
                 //GameManager.instance.UpdateTextPrompt(hit.collider.tag, "press E to pickup " + hit.collider.tag);
                 itemText.text = "press E to pickup " + hit.collider.tag;

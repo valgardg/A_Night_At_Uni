@@ -49,6 +49,9 @@ public class PlayerMovement : MonoBehaviour
 
     // Calculate players movement to be applied and apply it
     private void MovePlayer(){
+        if(GameManager.instance.playerHiddenState){
+            return;
+        }
         // calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
         // print($"moveDirection: {moveDirection}");
