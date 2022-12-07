@@ -79,16 +79,17 @@ public class GameManager : MonoBehaviour
     void FixedUpdate(){
         print("running in fixedupdate");
         if(batteryLevel > 0 && actualFlashlightLight.active){
-            batteryLevel -= 0.02f;
+            batteryLevel -= 0.04f;
+        }
+
+        if(batteryLevel < 0.1){
+            actualFlashlightLight.active = false;
         }
 
         if(hasFlashlight){
             batteryCountTextMesh.text = batteryCount.ToString();
-            batteryLevelTextMesh.text = ((int)batteryLevel).ToString();
+            batteryLevelTextMesh.text = ((int)batteryLevel).ToString() + "%";
         }
-
-        print(batteryCountTextMesh.text);
-        print(batteryLevelTextMesh.text);
 
     }
 
