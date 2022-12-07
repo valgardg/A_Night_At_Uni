@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public bool hasKey;
     public int batteryCount;
     public float batteryLevel;
+    public float batteryDrainSpeed;
 
     // enemy variables
     public bool chasePlayer;
@@ -57,6 +58,7 @@ public class GameManager : MonoBehaviour
         hasKey = false;
         batteryCount = 0;
         batteryLevel = 100f;
+        batteryDrainSpeed = 0.02f;
 
         batteryCountTextMesh.text = "";
         batteryLevelTextMesh.text = "";
@@ -79,7 +81,7 @@ public class GameManager : MonoBehaviour
     void FixedUpdate(){
         print("running in fixedupdate");
         if(batteryLevel > 0 && actualFlashlightLight.active){
-            batteryLevel -= 0.04f;
+            batteryLevel -= batteryDrainSpeed;
         }
 
         if(batteryLevel < 0.1){
