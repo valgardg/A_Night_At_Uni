@@ -14,7 +14,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameManager.instance.chasePlayer){
+        if(GameManager.instance.chasePlayer && !GameManager.instance.playerHiddenState){
             agent.SetDestination(new Vector3(player.position.x, 2, player.position.z));
             if(audioPlayed == false){
                 audio.Play();

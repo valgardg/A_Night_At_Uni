@@ -9,7 +9,7 @@ public class collectableItemScript : MonoBehaviour
 {
     public KeyCode presskey;
     public int rayDistance;
-    public AudioSource audioSource;
+    private AudioSource audioSource;
 
     private TMP_Text defaultText;
     private TMP_Text itemText;
@@ -17,6 +17,7 @@ public class collectableItemScript : MonoBehaviour
     void Start(){
         defaultText = GameObject.Find("ItemText").GetComponent<TextMeshProUGUI>();
         itemText = defaultText;
+        audioSource = GameObject.Find(gameObject.tag + "Sound").GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -27,14 +28,17 @@ public class collectableItemScript : MonoBehaviour
         if (Physics.Raycast(ray, out hit, rayDistance))
         {
 
-            if (hit.collider.tag != "Untagged" && hit.collider.tag != "Door")
+            if (hit.collider.tag != "Untagged" && hit.collider.tag != "Door" && hit.collider.tag != "HideObject")
             {
                 //GameManager.instance.UpdateTextPrompt(hit.collider.tag, "press E to pickup " + hit.collider.tag);
                 itemText.text = "press E to pickup " + hit.collider.tag;
                
                 if (Input.GetKey(presskey) && hit.collider.tag == gameObject.tag)
                 {
-                    audioSource.Play();
+                    if(!audioSource.isPlaying)
+                    {
+                        audioSource.Play();
+                    }
                     itemText.text = "";
                     GameManager.instance.ItemPickedUp(hit.collider.tag);
                     //hit.collider.gameObject.SetActive(false);

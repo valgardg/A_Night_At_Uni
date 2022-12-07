@@ -20,7 +20,7 @@ public class PlayerFlashlight : MonoBehaviour
         if(!hasTurnedOn && GameManager.instance.hasFlashlight){
             text.text = "left click for flashlight";
         }
-        if((Input.GetKeyDown("f") || Input.GetMouseButtonDown(0)) && GameManager.instance.hasFlashlight){
+        if((Input.GetKeyDown("f") || Input.GetMouseButtonDown(0)) && GameManager.instance.hasFlashlight && GameManager.instance.batteryLevel > 0){
             audioSource.Play();
             flashlight.active = !flashlight.active;
 
@@ -29,6 +29,10 @@ public class PlayerFlashlight : MonoBehaviour
                 hasTurnedOn = true;
                 text.text = "";
             }
+        }
+        if(Input.GetKeyDown("r") && GameManager.instance.batteryCount > 0){
+            GameManager.instance.batteryCount--;
+            GameManager.instance.batteryLevel = 100;
         }
     }
 }
