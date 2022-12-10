@@ -1372,8 +1372,6 @@ GameObject:
   - component: {fileID: 2239097869340553394}
   - component: {fileID: 2328033711086256378}
   - component: {fileID: 335422599680689857}
-  - component: {fileID: 8629788552712510398}
-  - component: {fileID: 5385706038291981692}
   - component: {fileID: 501226510348700194}
   m_Layer: 0
   m_Name: actualDoor
@@ -1460,40 +1458,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.2088722, y: 0.8715551, z: 1.9976009}
   m_Center: {x: 0.017979093, y: -0.37592915, z: 0.98711175}
---- !u!111 &8629788552712510398
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7264493630505816419}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 1c3e32eb6f88c4d4fa53d78bd73927ae, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 1c3e32eb6f88c4d4fa53d78bd73927ae, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
---- !u!114 &5385706038291981692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7264493630505816419}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22e35f59ce0ac5e46861d665c77268d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 0}
-  presskey: 101
-  rayDistance: 2
-  mydoor: {fileID: 7264493630505816419}
-  animate: {fileID: 8629788552712510398}
-  audioSource: {fileID: 0}
 --- !u!114 &501226510348700194
 MonoBehaviour:
   m_ObjectHideFlags: 0
