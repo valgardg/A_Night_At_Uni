@@ -67,10 +67,11 @@ public class EnemyPathfinding : MonoBehaviour
             // waypoint routing
             Vector3 destination = new Vector3(waypoints[index].transform.position.x, 0, waypoints[index].transform.position.z);
             if(new Vector3(transform.position.x, 0, transform.position.z) == destination){
-                if(index == waypoints.Count && waypoints.Count > 0){
+                if(index == waypoints.Count-1 && waypoints.Count > 0){
                     index = 0;
                 }else{
                     index += 1;
+                    print($"current index: {index}");
                 }
             }
             agent.SetDestination(destination); 
