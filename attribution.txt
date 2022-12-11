@@ -1,0 +1,27 @@
+Here is a list of all assets used in our game.
+
+Free Sci-Fi Office Pack - author: Terresquall. Link: https://assetstore.unity.com/packages/3d/environments/sci-fi/sci-fi-office-pack-184716
+
+Hand Painted Seamless Wood Texture Vol - 6 - author: Innovana Games. Link: https://assetstore.unity.com/packages/2d/textures-materials/wood/hand-painted-seamless-wood-texture-vol-6-162145
+
+Locker - author: VIS Games. Link: https://assetstore.unity.com/packages/3d/props/locker-56405
+
+Yughues Free Decorative Plants - author: Nobiax / Yughues. Link: https://assetstore.unity.com/packages/3d/props/interior/yughues-free-decorative-plants-13283
+
+Yughues Free Fabric Materials - author: Nobiax / Yughues. Link: https://assetstore.unity.com/packages/2d/textures-materials/fabric/yughues-free-fabric-materials-13002
+
+Industrial Sign Pack - FREE - author: SpeedTutor. Link: https://assetstore.unity.com/packages/3d/props/industrial-sign-pack-free-227650
+
+Zombie monster - author: wojciechmiedziocha. Link: https://sketchfab.com/3d-models/zombie-monster-d2f9be4f379a410f8c88745921bde6a0
+
+Snow material Texture - author: Zaklems. Link: https://www.cgtrader.com/free-3d-models/textures/natural-textures/snow-material-9ae0e708-d55c-4c3d-b40a-c5f2a8f1ca3a
+
+Door Free Pack Aferar - author: Andrey Ferar. Link: https://assetstore.unity.com/packages/3d/props/interior/door-free-pack-aferar-148411
+
+3D Ikea Trotten table - author: zibbo. Link: https://www.turbosquid.com/3d-models/3d-ikea-trotten-table-1837145
+
+3D Flash Light Low-poly- author: Aglenys_. Link: https://www.turbosquid.com/3d-models/3d-flash-light-lowpoly-1888231
+
+Worn Key - author: Mr. Wolf. Link  https://www.turbosquid.com/3d-models/free-key-3d-model/1082413
+
+Bed PBR - author: AK STUDIO ART. Link: https://assetstore.unity.com/packages/3d/props/clothing/bed-pbr-227070
