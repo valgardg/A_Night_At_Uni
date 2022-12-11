@@ -30,7 +30,9 @@ public class hideScript : MonoBehaviour
             if (hit.collider.tag == "HideObject")
             {
                 itemText.text = "press E to hide ";
-               
+            }
+            if (hit.collider == gameObject.GetComponent<Collider>())
+            {  
                 if (Input.GetKeyDown(presskey) && hit.collider.tag == gameObject.tag)
                 {
                     itemText.text = "";
