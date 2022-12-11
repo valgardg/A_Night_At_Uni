@@ -27,7 +27,11 @@ public class GameManager : MonoBehaviour
 
     // player inventory variables
     public bool hasFlashlight;
-    public bool hasKey;
+
+    // -- keys
+    public bool hasStartRoomKey;
+    public bool hasSlidingDoorKey;
+    
     public int batteryCount;
     public float batteryLevel;
     public float batteryDrainSpeed;
@@ -68,7 +72,8 @@ public class GameManager : MonoBehaviour
         playerHiddenState = false;
 
         hasFlashlight = false;
-        hasKey = false;
+        hasStartRoomKey= false;
+        hasSlidingDoorKey = false;
         batteryCount = 0;
         batteryLevel = 100f;
         batteryDrainSpeed = 0.02f;
@@ -120,19 +125,21 @@ public class GameManager : MonoBehaviour
         
         switch(pickedUpItem){
             case "Key":
-                hasKey = true;
+                hasStartRoomKey = true;
                 print("picked up key!");
                 break;
             case "Flashlight":
                 hasFlashlight = true;
                 flashlightObject.active = true;
                 actualFlashlightLight.active = false;
-
                 print("picked up flashlight!");
                 break;
             case "Battery":
                 batteryCount++;
                 print("picked up battery");
+                break;
+            case "SlidingDoorKey":
+                hasSlidingDoorKey = true;
                 break;
             default:
                 print("Picked up an unidentified object!");

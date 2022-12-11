@@ -25,15 +25,15 @@ public class DoorInteraction : MonoBehaviour
 
             if (hit.collider.tag == "Door")
             {
-                if(doorClosed && GameManager.instance.hasKey){
+                if(doorClosed && GameManager.instance.hasStartRoomKey){
                     text.text = "press E to open " + hit.collider.tag;
                 }
 
-                if(doorClosed && !GameManager.instance.hasKey){
+                if(doorClosed && !GameManager.instance.hasStartRoomKey){
                     text.text = "door requires key";
                 }
 
-                if (Input.GetKeyDown(presskey) && doorClosed && GameManager.instance.hasKey)
+                if (Input.GetKeyDown(presskey) && doorClosed && GameManager.instance.hasStartRoomKey)
                 {
                     text.text = "press E to open " + hit.collider.tag;
                     animate.Play();
