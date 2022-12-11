@@ -6,9 +6,10 @@ using System.Runtime.CompilerServices;
 using UnityEditor.UIElements;
 using UnityEngine.SceneManagement;
 using System.ComponentModel;
+using System;
 
 public class GameManager : MonoBehaviour
-{    
+{
     public static GameManager instance;
 
     // in game items
@@ -47,8 +48,17 @@ public class GameManager : MonoBehaviour
     public bool setNightTime;
     public float sensex = 200;
     public float sensey = 200;
-    
+    private int[] _keys = { 0, 0, 0, 0, 0 };
 
+    public int haskey(int key) {
+        Debug.Log(_keys[key]);
+        return _keys[key];
+    }
+
+    public void addkey(int key)
+    {
+        _keys[key] = 1;
+    }
     void Awake(){
         // initialise gamemanager object variables
         instance = this;

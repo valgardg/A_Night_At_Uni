@@ -15,6 +15,10 @@ public class DoorInteraction : MonoBehaviour
     public AudioSource audioSource;
     bool doorClosed = true;
 
+    private void Start()
+    {
+        mydoor = gameObject;
+    }
     void FixedUpdate()
     {
         RaycastHit hit;
@@ -22,10 +26,12 @@ public class DoorInteraction : MonoBehaviour
         text.text = "";
         if (Physics.Raycast(ray, out hit, rayDistance))
         {
-
+            
             if (hit.collider.tag == "Door")
             {
-                if(doorClosed && GameManager.instance.hasKey){
+              
+                Debug.Log(hit.collider.gameObject);
+                if (doorClosed && GameManager.instance.hasKey){
                     text.text = "press E to open " + hit.collider.tag;
                 }
 
@@ -33,7 +39,7 @@ public class DoorInteraction : MonoBehaviour
                     text.text = "door requires key";
                 }
 
-                if (Input.GetKeyDown(presskey) && doorClosed && GameManager.instance.hasKey)
+                if (Input.GetKeyDown(presskey) && doorClosed && GameManager.instance.haskey(int.Parse(mydoor.name))==1)
                 {
                     text.text = "press E to open " + hit.collider.tag;
                     animate.Play();

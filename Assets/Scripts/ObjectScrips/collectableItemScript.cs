@@ -41,6 +41,10 @@ public class collectableItemScript : MonoBehaviour
                     }
                     itemText.text = "";
                     GameManager.instance.ItemPickedUp(hit.collider.tag);
+                    if(hit.collider.tag == "Key")
+                    {
+                        GameManager.instance.addkey(int.Parse(hit.collider.gameObject.name));
+                    }
                     //hit.collider.gameObject.SetActive(false);
                     Destroy(hit.collider.gameObject);
                 }
