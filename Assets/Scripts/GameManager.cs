@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
     public bool setNightTime;
     public float sensex = 200;
     public float sensey = 200;
+    public bool alive = true;
     
 
     void Awake(){

@@ -23,7 +23,7 @@ public class EnemyController : MonoBehaviour
     }
     void Update()
     {
-        if (!killplaying)
+        if (GameManager.instance.alive)
         {
             if (GameManager.instance.chasePlayer && !GameManager.instance.playerHiddenState)
             {
@@ -43,9 +43,15 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other){
         killplaying = true;
-        animator.ResetTrigger("Kill");
+        GameManager.instance.alive = false;
+        animator.ResetTrigger("Walk");
         print("enemy hit a collider!");
         animator.SetTrigger("Kill");
         //GameManager.instance.PlayerDeath();
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        
+        
     }
 }
