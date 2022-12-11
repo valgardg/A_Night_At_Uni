@@ -6,7 +6,7 @@ using TMPro;
 using System.Runtime.CompilerServices;
 using UnityEditor.UIElements;
 
-public class ElevatorScript : MonoBehaviour
+public class schenechanger : MonoBehaviour
 {
 
     public TMP_Text text;
@@ -18,12 +18,12 @@ public class ElevatorScript : MonoBehaviour
 
     void FixedUpdate(){
         if(hasEntered && Input.GetKey("e")){
-            SceneManager.LoadScene("basement");
+            SceneManager.LoadScene("map");
         }
     }
 
     private void OnTriggerEnter(Collider other){
-        text.text = "Press E to go to basement";
+        text.text = "Press E to go to to first floor";
         hasEntered = true;
     }
 }
