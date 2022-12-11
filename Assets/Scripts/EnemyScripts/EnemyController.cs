@@ -8,15 +8,25 @@ public class EnemyController : MonoBehaviour
     public UnityEngine.AI.NavMeshAgent agent;
     public AudioSource audio;
     public AudioSource footsteps;
+    public Animator animator;
 
     bool audioPlayed = false;
 
     // Update is called once per frame
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+        animator.ResetTrigger("Walk");
+    }
     void Update()
     {
         if(GameManager.instance.chasePlayer && !GameManager.instance.playerHiddenState){
             agent.SetDestination(new Vector3(player.position.x, 2, player.position.z));
-            if(audioPlayed == false){
+           
+            animator.SetTrigger("Walk");
+            if (audioPlayed == false){
+                //animator.SetTrigger("Walk");
                 audio.Play();
                 footsteps.Play();
                 audioPlayed = true;
