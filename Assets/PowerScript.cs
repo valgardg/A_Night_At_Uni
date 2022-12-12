@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using TMPro;
 using System.Runtime.CompilerServices;
 using UnityEditor.UIElements;
 
-public class SlidingDoorsScript : MonoBehaviour
+public class PowerScript : MonoBehaviour
 {
     public TMP_Text text;
     public KeyCode presskey;
@@ -19,17 +18,18 @@ public class SlidingDoorsScript : MonoBehaviour
         text.text = "";
         if (Physics.Raycast(ray, out hit, rayDistance))
         {
-            if (hit.collider.tag == "SlidingDoor")
+            if (hit.collider.tag == "Power")
             {
-                if(!GameManager.instance.powerOn){
-                    text.text = "turn the power on!";
+                if(GameManager.instance.powerOn){
+                    text.text = "";
                 }else{
-                    text.text = "press E to escape";
+                    text.text = "Press E to turn the power on";
                 }
 
-                if (Input.GetKeyDown(presskey) && GameManager.instance.powerOn)
+                if (Input.GetKeyDown(presskey))
                 {
-                    SceneManager.LoadScene("Menu_Scene");
+                    GameManager.instance.powerOn = true;
+                    print("power was turned on");
                 }
             }
         }

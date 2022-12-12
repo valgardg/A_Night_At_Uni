@@ -15,6 +15,10 @@ public class DoorInteraction : MonoBehaviour
     public AudioSource audioSource;
     bool doorClosed = true;
 
+    private void Start()
+    {
+        mydoor = gameObject;
+    }
     void FixedUpdate()
     {
         RaycastHit hit;
@@ -25,7 +29,9 @@ public class DoorInteraction : MonoBehaviour
 
             if (hit.collider.tag == "Door")
             {
-                if(doorClosed && GameManager.instance.hasStartRoomKey){
+
+                Debug.Log(hit.collider.gameObject);
+                if (doorClosed && GameManager.instance.hasStartRoomKey){
                     text.text = "press E to open " + hit.collider.tag;
                 }
 

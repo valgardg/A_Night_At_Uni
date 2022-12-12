@@ -13,6 +13,11 @@ TagManager:
   - slidingDoor
   - SlidingDOor
   - SlidingDoor
+  - enemy
+  - Power
+  - elevator
+  - elevatoUp
+  - elevatorDown
   layers:
   - Default
   - TransparentFX

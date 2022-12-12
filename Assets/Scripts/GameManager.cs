@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     // player inventory variables
     public bool hasFlashlight;
 
+    public bool powerOn;
+
     // -- keys
     public bool hasStartRoomKey;
     public bool hasSlidingDoorKey;
@@ -52,6 +54,7 @@ public class GameManager : MonoBehaviour
     public float sensex = 200;
     public float sensey = 200;
     
+    public bool alive;
 
     void Awake(){
         // initialise gamemanager object variables
@@ -141,6 +144,9 @@ public class GameManager : MonoBehaviour
             case "SlidingDoorKey":
                 hasSlidingDoorKey = true;
                 break;
+            case "Power":
+                powerOn = true;
+                break;
             default:
                 print("Picked up an unidentified object!");
                 break;
@@ -165,5 +171,17 @@ public class GameManager : MonoBehaviour
         playerHiddenState = false;
         playerobject.transform.position = previousPlayerPosition;
         playerBody.active = true;
+    }
+
+    private int[] _keys = { 0, 0, 0, 0, 0 };
+
+    public int haskey(int key) {
+        Debug.Log(_keys[key]);
+        return _keys[key];
+    }
+
+    public void addkey(int key)
+    {
+        _keys[key] = 1;
     }
 }

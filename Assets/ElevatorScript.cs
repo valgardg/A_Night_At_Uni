@@ -1,29 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using TMPro;
 using System.Runtime.CompilerServices;
 using UnityEditor.UIElements;
 
 public class ElevatorScript : MonoBehaviour
 {
-    
+    public GameObject player;
+    public GameObject destination;
+
     public TMP_Text text;
-    private bool hasEntered;
+    public KeyCode presskey;
+    public int rayDistance;
 
-    void Start(){
-        hasEntered = false;
-    }
+    void FixedUpdate()
+    {
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        text.text = "";
+        if (Physics.Raycast(ray, out hit, rayDistance))
+        {
+            if (hit.collider.tag == "elevatoUp")
+            {
+                if(GameManager.instance.powerOn){
+                    text.text = "";
+                }else{
+                    text.text = "Press E to go downstairs";
+                }
 
-    void FixedUpdate(){
-        if(hasEntered && Input.GetKey("e")){
-            SceneManager.LoadScene("basement");
+                if (Input.GetKeyDown(presskey))
+                {
+                    player.transform.position = new Vector3(6.123096f,player.transform.position.y,10.06f);
+                }
+            }
         }
-    }
-
-    private void OnTriggerEnter(Collider other){
-        text.text = "Press E to go to basement";
-        hasEntered = true;
     }
 }
