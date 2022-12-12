@@ -41,9 +41,4 @@ public class EnemyController : MonoBehaviour
         print("enemy hit a collider!");
         GameManager.instance.PlayerDeath();
     }
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> 5b5de5c25c23a82c827c63a02b41296bfb2feefb
 }

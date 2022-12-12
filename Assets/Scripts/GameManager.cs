@@ -55,7 +55,6 @@ public class GameManager : MonoBehaviour
     public float sensey = 200;
     public bool alive = true;
     
-    public bool alive;
 
     void Awake(){
         // initialise gamemanager object variables
