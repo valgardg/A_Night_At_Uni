@@ -61,7 +61,11 @@ public class EnemyPathfinding : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+<<<<<<< HEAD
         if(canSeePlayer && !GameManager.instance.playerHiddenState){
+=======
+        if(canSeePlayer && GameManager.instance.alive){
+>>>>>>> 5b5de5c25c23a82c827c63a02b41296bfb2feefb
             agent.SetDestination(playerRef.transform.position);
         }else{
             // waypoint routing
