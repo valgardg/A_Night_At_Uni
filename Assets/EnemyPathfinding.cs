@@ -62,8 +62,9 @@ public class EnemyPathfinding : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         
-        if (canSeePlayer && !GameManager.instance.playerHiddenState) { 
+        if (canSeePlayer && GameManager.instance.alive && !GameManager.instance.playerHiddenState)) { 
         Debug.Log("player is not hidden");
         GameManager.instance.chasePlayer = true;
         }
@@ -71,6 +72,7 @@ public class EnemyPathfinding : MonoBehaviour
         else if (canSeePlayer && GameManager.instance.alive)
         {
             GameManager.instance.chasePlayer = true;
+
 
             agent.SetDestination(playerRef.transform.position);
         }
