@@ -61,5 +61,4 @@ public class EnemyController : MonoBehaviour
     {
         GameManager.instance.PlayerDeath();
     }
-
 }
