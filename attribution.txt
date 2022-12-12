@@ -25,3 +25,5 @@ Door Free Pack Aferar - author: Andrey Ferar. Link: https://assetstore.unity.com
 Worn Key - author: Mr. Wolf. Link  https://www.turbosquid.com/3d-models/free-key-3d-model/1082413
 
 Bed PBR - author: AK STUDIO ART. Link: https://assetstore.unity.com/packages/3d/props/clothing/bed-pbr-227070
+
+https://assetstore.unity.com/packages/2d/textures-materials/galaxy-fire-skybox-10976
