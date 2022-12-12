@@ -17,6 +17,7 @@ public class collectableItemScript : MonoBehaviour
     void Start(){
         defaultText = GameObject.Find("ItemText").GetComponent<TextMeshProUGUI>();
         itemText = defaultText;
+        itemText.text = "";
         audioSource = GameObject.Find(gameObject.tag + "Sound").GetComponent<AudioSource>();
     }
 

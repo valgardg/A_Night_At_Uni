@@ -98,6 +98,7 @@ public class GameManager : MonoBehaviour
     {
         instance.alive = true;
         instance.playerHiddenState = false;
+        instance.hideTextMesh.text = "";
     }
 
     void FixedUpdate(){

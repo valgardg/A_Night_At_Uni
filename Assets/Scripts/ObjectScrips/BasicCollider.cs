@@ -22,8 +22,8 @@ public class BasicCollider : MonoBehaviour
 
             if (hit.collider.tag != "Untagged" && hit.collider.tag != "Door")
             {
-                //GameManager.instance.UpdateTextPrompt(hit.collider.tag, "press E to pickup " + hit.collider.tag);
-                text.text = "press E to pickup " + hit.collider.tag;
+                //GameManager.instance.(hit.collider.tag, "press E to pickup " + hit.collider.tag);
+                //text.text = "press E to pickup " + hit.collider.tag;
                
                 if (Input.GetKey(presskey) && hit.collider.tag == gameObject.tag)
                 {

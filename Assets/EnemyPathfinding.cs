@@ -64,7 +64,7 @@ public class EnemyPathfinding : MonoBehaviour
     {
 
         
-        if (canSeePlayer && GameManager.instance.alive && !GameManager.instance.playerHiddenState)) { 
+        if (canSeePlayer && GameManager.instance.alive && !GameManager.instance.playerHiddenState) { 
         Debug.Log("player is not hidden");
         GameManager.instance.chasePlayer = true;
         }
