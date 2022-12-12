@@ -43,9 +43,12 @@ public class PlayerCamera : MonoBehaviour
         }
         else
         {
+            if (enemy != null) {
+                Debug.Log("dead");
             Vector3 direction = enemy.position - transform.position;
             Quaternion rotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, 5f * Time.deltaTime);
+            }
         }
       
     }

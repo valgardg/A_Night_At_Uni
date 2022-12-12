@@ -13,6 +13,7 @@ public class EnemyPathfinding : MonoBehaviour
 
     public LayerMask targetMask;
     public LayerMask obstructionMask;
+    public Animator animator;
 
     public bool canSeePlayer;
 
@@ -61,24 +62,37 @@ public class EnemyPathfinding : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-<<<<<<< HEAD
-        if(canSeePlayer && !GameManager.instance.playerHiddenState){
-=======
-        if(canSeePlayer && GameManager.instance.alive){
->>>>>>> 5b5de5c25c23a82c827c63a02b41296bfb2feefb
+        
+        if (canSeePlayer && !GameManager.instance.playerHiddenState) { 
+        Debug.Log("player is not hidden");
+        GameManager.instance.chasePlayer = true;
+        }
+
+        else if (canSeePlayer && GameManager.instance.alive)
+        {
+            GameManager.instance.chasePlayer = true;
+
             agent.SetDestination(playerRef.transform.position);
-        }else{
+        }
+        else
+        {
             // waypoint routing
+            GameManager.instance.chasePlayer = false;
+           
             Vector3 destination = new Vector3(waypoints[index].transform.position.x, 0, waypoints[index].transform.position.z);
-            if(new Vector3(transform.position.x, 0, transform.position.z) == destination){
-                if(index == waypoints.Count-1 && waypoints.Count > 0){
+            if (new Vector3(transform.position.x, 0, transform.position.z) == destination)
+            {
+                if (index == waypoints.Count - 1 && waypoints.Count > 0)
+                {
                     index = 0;
-                }else{
+                }
+                else
+                {
                     index += 1;
                     print($"current index: {index}");
                 }
             }
-            agent.SetDestination(destination); 
+            agent.SetDestination(destination);
         }
     }
 }
