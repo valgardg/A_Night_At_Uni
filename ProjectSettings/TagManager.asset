@@ -8,6 +8,8 @@ TagManager:
   - Flashlight
   - Door
   - TestObject
+  - Battery
+  - HideObject
   layers:
   - Default
   - TransparentFX
@@ -42,6 +44,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Front
+    uniqueID: 4153302999
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

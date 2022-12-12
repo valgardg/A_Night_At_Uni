@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
-    public float sensX;
-    public float sensY;
+    float sensX;
+    float sensY;
 
     public Transform orientation;
     public Transform flashlight;
@@ -18,6 +18,8 @@ public class PlayerCamera : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        sensX = PlayerPrefs.GetFloat("XSensitivity");
+        sensY = PlayerPrefs.GetFloat("YSensitivity");
     }
 
     // Update is called once per frame
