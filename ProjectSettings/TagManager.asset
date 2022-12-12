@@ -10,7 +10,9 @@ TagManager:
   - TestObject
   - Battery
   - HideObject
-  - enemy
+  - slidingDoor
+  - SlidingDOor
+  - SlidingDoor
   layers:
   - Default
   - TransparentFX

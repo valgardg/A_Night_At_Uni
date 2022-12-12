@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -10,19 +9,13 @@ public class EnemyController : MonoBehaviour
     public AudioSource audio;
     public AudioSource footsteps;
     public Animator animator;
-    private bool killplaying = false;
 
     bool audioPlayed = false;
 
     // Update is called once per frame
-
-    private void Start()
-    {
-        //animator = GetComponent<Animator>();
-        animator.ResetTrigger("Walk");
-    }
     void Update()
     {
+
         if (GameManager.instance.alive)
         {
             if (GameManager.instance.chasePlayer && !GameManager.instance.playerHiddenState)
@@ -37,21 +30,16 @@ public class EnemyController : MonoBehaviour
                     footsteps.Play();
                     audioPlayed = true;
                 }
+
             }
         }
     }
 
     private void OnTriggerEnter(Collider other){
-        killplaying = true;
         GameManager.instance.alive = false;
         animator.ResetTrigger("Walk");
         print("enemy hit a collider!");
-        animator.SetTrigger("Kill");
-        //GameManager.instance.PlayerDeath();
+        GameManager.instance.PlayerDeath();
     }
-    private void OnTriggerStay(Collider other)
-    {
-        
-        
-    }
+    
 }

@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
     private void MyInput(){
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
-        // print($"horizontal: {horizontalInput} vertical: {verticalInput}");
+        //print($"horizontal: {horizontalInput} vertical: {verticalInput}");
     }
 
     // Calculate players movement to be applied and apply it
