@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
         hasSlidingDoorKey = false;
         batteryCount = 0;
         batteryLevel = 100f;
-        batteryDrainSpeed = 0.02f;
+        batteryDrainSpeed = 0;
 
         batteryCountTextMesh.text = "";
         batteryLevelTextMesh.text = "";

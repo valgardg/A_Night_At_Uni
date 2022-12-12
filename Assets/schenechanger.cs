@@ -9,6 +9,7 @@ public class schenechanger : MonoBehaviour
 {
     public GameObject player;
     public GameObject destination;
+    public AudioClip monstersound;
 
     public TMP_Text text;
     public KeyCode presskey;

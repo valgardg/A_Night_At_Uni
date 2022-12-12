@@ -14,11 +14,17 @@ public class EnemyPathfinding : MonoBehaviour
     public LayerMask targetMask;
     public LayerMask obstructionMask;
     public Animator animator;
+    public Transform player;
+    public AudioSource audio;
+    public AudioSource footsteps;
 
     public bool canSeePlayer;
+    bool audioPlayed = false;
+    bool killigplayer = false;
 
     public List<GameObject> waypoints;
     private int index = 0;
+
 
     private void Start(){
         playerRef = GameObject.FindGameObjectWithTag("Player");
@@ -62,39 +68,67 @@ public class EnemyPathfinding : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        
-        if (canSeePlayer && GameManager.instance.alive && !GameManager.instance.playerHiddenState) { 
-        Debug.Log("player is not hidden");
-        GameManager.instance.chasePlayer = true;
-        }
-
-        else if (canSeePlayer && GameManager.instance.alive)
+        if (!killigplayer)
         {
-            GameManager.instance.chasePlayer = true;
-
-
-            agent.SetDestination(playerRef.transform.position);
-        }
-        else
-        {
-            // waypoint routing
-            GameManager.instance.chasePlayer = false;
-           
-            Vector3 destination = new Vector3(waypoints[index].transform.position.x, 0, waypoints[index].transform.position.z);
-            if (new Vector3(transform.position.x, 0, transform.position.z) == destination)
+            animator.SetTrigger("Walk");
+            if (canSeePlayer && GameManager.instance.alive && !GameManager.instance.playerHiddenState)
             {
-                if (index == waypoints.Count - 1 && waypoints.Count > 0)
+                Debug.Log("player is not hidden");
+
+                if (audioPlayed == false)
+
                 {
-                    index = 0;
+                    //animator.SetTrigger("Walk");
+                    audio.Play();
+                    footsteps.Play();
+                    audioPlayed = true;
                 }
-                else
-                {
-                    index += 1;
-                    print($"current index: {index}");
-                }
+
+                agent.SetDestination(playerRef.transform.position);
             }
-            agent.SetDestination(destination);
+            else
+            {
+                // waypoint routing
+                GameManager.instance.chasePlayer = false;
+
+                Vector3 destination = new Vector3(waypoints[index].transform.position.x, 0, waypoints[index].transform.position.z);
+                if (new Vector3(transform.position.x, 0, transform.position.z) == destination)
+                {
+                    if (index == waypoints.Count - 1 && waypoints.Count > 0)
+                    {
+                        index = 0;
+                    }
+                    else
+                    {
+                        index += 1;
+                        print($"current index: {index}");
+                    }
+                }
+                agent.SetDestination(destination);
+            }
         }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        GameManager.instance.alive = false;
+        InvokeRepeating("Die", 2.0f, 0.3f);
+        animator.ResetTrigger("Walk");
+        animator.SetTrigger("Kill");
+        print("enemy hit a collider!");
+        killigplayer = true;
+
+        //GameManager.instance.PlayerDeath();
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        Vector3 direction = player.position - transform.position;
+        Quaternion rotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, 5f * Time.deltaTime);
+    }
+
+    private void Die()
+    {
+        GameManager.instance.PlayerDeath();
     }
 }

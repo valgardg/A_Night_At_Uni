@@ -8,7 +8,7 @@ using UnityEditor.UIElements;
 public class DoorInteraction : MonoBehaviour
 {
     public TMP_Text text;
-    public KeyCode presskey;
+    private KeyCode presskey = KeyCode.E;
     public int rayDistance;
     public GameObject mydoor;
     public Animation animate;

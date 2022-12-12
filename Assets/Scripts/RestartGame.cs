@@ -15,7 +15,7 @@ public class RestartGame : MonoBehaviour
     void Update()
     {
         if(Input.GetKey("r")){
-            SceneManager.LoadScene("AlphaScene");
+            SceneManager.LoadScene("Map");
         }
     }
 }
