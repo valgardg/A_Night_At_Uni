@@ -29,3 +29,19 @@ Bed PBR - author: AK STUDIO ART. Link: https://assetstore.unity.com/packages/3d/
 start screen sky box - author. sean duffy. link: https://assetstore.unity.com/packages/2d/textures-materials/galaxy-fire-skybox-10976
 
 3D main menu - author: slimUI. link: https://assetstore.unity.com/packages/2d/textures-materials/galaxy-fire-skybox-10976
+
+ATM - Artist: CGY (Yemelyan K.) - Link: https://assetstore.unity.com/packages/3d/environments/sci-fi/atm-95057
+
+Old Ceiling Fan - Artist: Tim H. - Link: https://assetstore.unity.com/packages/3d/props/tim-s-assets-old-ceiling-fan-103789
+
+Paintings - Artist: Webcadabra - Link: https://assetstore.unity.com/packages/3d/props/interior/paintings-free-44185
+
+Mannequins - Artist: VIS Games - Link: https://assetstore.unity.com/packages/3d/props/mannequins-56448
+
+Horror School Props - Artist: Anthon - Link: https://assetstore.unity.com/packages/3d/props/furniture/horror-school-props-112589
+
+Horror Assets - Artist: Lukas Bobor - Link: https://assetstore.unity.com/packages/3d/props/horror-assets-69717
+
+Bodyguards - Artist: Batewar - Link: https://assetstore.unity.com/packages/3d/characters/humanoids/humans/bodyguards-31711
+
+Blood splatter decal package - Artist: NorSat Entertainment - Link: https://assetstore.unity.com/packages/2d/textures-materials/blood-splatter-decal-package-7518
