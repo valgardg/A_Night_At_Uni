@@ -260,7 +260,7 @@ namespace SlimUI.ModernMenu{
 
 		IEnumerator LoadAsynchronously(string sceneName){ // scene name is just the name of the current scene being loaded
 			Debug.Log(sceneName);
-			AsyncOperation operation = SceneManager.LoadSceneAsync("AlphaScene");
+			AsyncOperation operation = SceneManager.LoadSceneAsync("Map");
 
             operation.allowSceneActivation = false;
 			mainCanvas.SetActive(false);

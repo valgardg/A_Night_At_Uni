@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
     public float sensey = 200;
     public bool alive = true;
 
+
     void Awake(){
         // initialise gamemanager object variables
         instance = this;
@@ -95,7 +96,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-         
+        instance.alive = true;
+        instance.playerHiddenState = false;
+        instance.hideTextMesh.text = "";
+
     }
 
     void FixedUpdate(){
